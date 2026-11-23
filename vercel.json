@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    { "src": "/whitefield", "dest": "/whitefield/index.html" },
+    { "src": "/yelahanka", "dest": "/yelahanka/index.html" },
+    { "src": "/kolar", "dest": "/kolar/index.html" },
+    { "src": "/avalahalli", "dest": "/avalahalli/index.html" },
+    { "src": "/varthur", "dest": "/varthur/index.html" }
+  ]
+}

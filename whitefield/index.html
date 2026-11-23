@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Epitome Kia - Whitefield</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Oswald:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-orange: #ff5700;
+      --primary-orange-gradient: linear-gradient(90deg, #ff5000, #ff6600);
+      --navy-card: #071520;
+      --navy-selected: #0a2538;
+      --text-dark: #001222;
+      --text-sub: #536371;
+      --border-gray: #d4dce3;
+      --border-dashed: #8598a6;
+      --bg-white: #ffffff;
+      --bg-light: #f5f8fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #e9eef2;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    /* Mobile-first Mockup Frame */
+    .app-screen {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      background: #ffffff;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      padding-bottom: 2rem;
+    }
+
+    /* Top Logos Bar */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 1.6rem 1rem;
+    }
+
+    .brand-epitome {
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #0b0f19;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-epitome span.e-orange {
+      color: #f59e0b;
+      margin-right: 1px;
+    }
+
+    .brand-kia-logo {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Screen Views */
+    .screen-view {
+      display: none;
+      padding: 0 1.5rem 1.5rem;
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .screen-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PAGE 1: HOME STYLES */
+    .showroom-headline {
+      font-family: 'Oswald', 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
+      text-align: center;
+      color: #051420;
+      margin: 1rem 0 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .thankyou-banner {
+      background: #061523;
+      border-radius: 12px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 18px rgba(6, 21, 35, 0.15);
+    }
+
+    .thankyou-banner h2 {
+      color: #ff5700;
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .thankyou-banner p {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .section-title-bold {
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-align: center;
+      color: #051420;
+      margin-bottom: 1.2rem;
+    }
+
+    .customer-types-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .customer-type-btn {
+      background: #061523;
+      color: #ffffff;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 1.15rem 1rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(6, 21, 35, 0.12);
+    }
+
+    .customer-type-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(6, 21, 35, 0.22);
+    }
+
+    .customer-type-btn.selected {
+      background: #0a253c;
+      border-color: #ff5700;
+      box-shadow: 0 0 16px rgba(255, 87, 0, 0.35);
+    }
+
+    /* Big Bottom Orange Action Button */
+    .big-orange-btn {
+      width: 100%;
+      background: #ff5000;
+      background: var(--primary-orange-gradient);
+      color: #ffffff;
+      border: none;
+      border-radius: 100px;
+      padding: 1.15rem 1.6rem;
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(255, 80, 0, 0.38);
+      transition: all 0.25s ease;
+      margin-top: 1rem;
+    }
+
+    .big-orange-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 80, 0, 0.5);
+    }
+
+    .big-orange-btn:active {
+      transform: translateY(1px);
+    }
+
+    .big-orange-btn .circle-icon {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff5000;
+      font-size: 1.25rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .big-orange-btn:hover .circle-icon {
+      transform: translateX(3px);
+    }
+
+    /* PAGE 2: CAR SELECTION STYLES */
+    .step-track-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0.5rem 0 1.2rem;
+    }
+
+    .step-track-icon {
+      width: 24px;
+      height: 24px;
+      background: #051420;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .step-track-line {
+      flex: 1;
+      height: 2px;
+      background: #051420;
+      border-top: 1.5px dashed #051420;
+    }
+
+    .step-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #051420;
+      margin-bottom: 0.4rem;
+    }
+
+    .car-screen-question {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #051420;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+    }
+
+    .car-screen-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+    }
+
+    /* 2-Column Dashed Car Grid Exactly like uploaded UI */
+    .cars-dashed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .car-box-card {
+      background: #ffffff;
+      border: 1.5px dashed var(--border-dashed);
+      border-radius: 16px;
+      padding: 0.75rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      min-height: 108px;
+      position: relative;
+    }
+
+    .car-box-card:hover {
+      border-color: #ff5700;
+      background: #fffbf9;
+      transform: translateY(-2px);
+    }
+
+    .car-box-card.selected {
+      border: 2px solid #ff5700;
+      background: #fff8f5;
+      box-shadow: 0 4px 15px rgba(255, 87, 0, 0.2);
+    }
+
+    .car-box-card.selected .car-select-badge {
+      display: flex;
+    }
+
+    .car-select-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 18px;
+      height: 18px;
+      background: #ff5700;
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 0.65rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .car-box-img {
+      width: 100%;
+      max-width: 155px;
+      height: 52px;
+      object-fit: contain;
+      margin-bottom: 0.4rem;
+      transition: transform 0.2s ease;
+    }
+
+    .car-box-card:hover .car-box-img {
+      transform: scale(1.04);
+    }
+
+    .car-box-name {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #051420;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .car-box-card.na-box {
+      border-style: dashed;
+      justify-content: center;
+    }
+
+    .car-box-card.na-box .car-box-name {
+      font-size: 1rem;
+      color: #64748b;
+    }
+
+    /* PAGE 3: REVIEW RESULT & FEEDBACK FACTORS */
+    .touchpoints-container {
+      margin-top: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .factors-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #051420;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .factor-pill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .factor-pill {
+      font-size: 0.78rem;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .factor-pill.active {
+      background: #fff1eb;
+      border-color: #ff5700;
+      color: #ff5700;
+      font-weight: 700;
+    }
+
+    .consultant-input-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .consultant-input-wrap label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    .consultant-input-wrap input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1.5px solid #cbd5e1;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    .consultant-input-wrap input:focus {
+      border-color: #ff5700;
+    }
+
+    /* Output Review Box */
+    .review-result-card {
+      background: #061523;
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(6, 21, 35, 0.25);
+      margin-top: 1rem;
+      position: relative;
+    }
+
+    .review-stars {
+      color: #ffb703;
+      font-size: 1.15rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      gap: 3px;
+    }
+
+    .review-quote {
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: #f1f5f9;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-action-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-action-redirect {
+      background: #ff5700;
+      background: var(--primary-orange-gradient);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(255, 87, 0, 0.4);
+    }
+
+    .btn-action-redirect:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 87, 0, 0.55);
+    }
+
+    .secondary-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action-alt {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 9px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action-alt:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    /* Floating Toast */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #061523;
+      color: #ffffff;
+      border: 1px solid #ff5700;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      white-space: nowrap;
+    }
+
+    .toast-box.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .toast-box i {
+      color: #ff5700;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-screen">
+    <!-- Top Header Logos exactly matching uploaded design -->
+    <header class="header-bar">
+      <div class="brand-epitome">
+        <span class="e-orange">E</span>PITOME
+      </div>
+      <img src="../assets/kia_logo.png" alt="KIA" class="brand-kia-logo">
+    </header>
+
+    <!-- ================= SCREEN 1: HOME ================= -->
+    <section id="screen1" class="screen-view active">
+      <h1 class="showroom-headline">EPITOME KIA SHOWROOM HOODI, WHITEFIELD</h1>
+
+      <div class="thankyou-banner">
+        <h2>Thank You for Choosing Epitome Kia - Whitefield</h2>
+        <p>We’d love to hear about your experience.</p>
+      </div>
+
+      <div class="section-title-bold">Select Customer Type</div>
+
+      <div class="customer-types-stack">
+        <button class="customer-type-btn selected" onclick="pickCustomerType('walkthrough', this)">
+          WALK THROUGH CUSTOMER
+        </button>
+        <button class="customer-type-btn" onclick="pickCustomerType('testdrive', this)">
+          TEST DRIVE CUSTOMER
+        </button>
+        <button class="customer-type-btn" onclick="pickCustomerType('delivery', this)">
+          DELIVERY CUSTOMER
+        </button>
+      </div>
+
+      <button class="big-orange-btn" onclick="proceedToCarSelection()">
+        <span>Share Your Experience</span>
+        <div class="circle-icon">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </button>
+    </section>
+
+    <!-- ================= SCREEN 2: CAR SELECTION ================= -->
+    <section id="screen2" class="screen-view">
+      <div class="step-track-wrapper">
+        <div class="step-track-icon" onclick="goToScreen(1)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="step-track-line"></div>
+      </div>
+      <div class="step-label">Select the Car</div>
+
+      <!-- Dynamic Question based on Customer Type -->
+      <h2 class="car-screen-question" id="dynamic-car-question">
+        Which Kia Car are you currently looking into ?
+      </h2>
+      <p class="car-screen-subtitle" id="dynamic-car-subtitle">
+        Which specific car are you currently considering.
+      </p>
+
+      <!-- 2-Column Dashed Card Grid with extracted images -->
+      <div class="cars-dashed-grid">
+        <!-- 1. Sorento -->
+        <div class="car-box-card" onclick="pickCar('Kia Sorento', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/sorento.png" alt="Kia Sorento" class="car-box-img">
+          <div class="car-box-name">KIA SORENTO</div>
+        </div>
+
+        <!-- 2. New Seltos -->
+        <div class="car-box-card selected" onclick="pickCar('New Seltos', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/seltos.png" alt="New Seltos" class="car-box-img">
+          <div class="car-box-name">NEW SELTOS</div>
+        </div>
+
+        <!-- 3. Syros -->
+        <div class="car-box-card" onclick="pickCar('Kia Syros', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/syros.png" alt="Kia Syros" class="car-box-img">
+          <div class="car-box-name">KIA SYROS</div>
+        </div>
+
+        <!-- 4. Sonet -->
+        <div class="car-box-card" onclick="pickCar('Kia Sonet', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/sonet.png" alt="Kia Sonet" class="car-box-img">
+          <div class="car-box-name">KIA SONET</div>
+        </div>
+
+        <!-- 5. Syros EV -->
+        <div class="car-box-card" onclick="pickCar('Kia Syros EV', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/syros_ev.png" alt="Kia Syros EV" class="car-box-img">
+          <div class="car-box-name">KIA SYROS EV</div>
+        </div>
+
+        <!-- 6. Carens Clavis -->
+        <div class="car-box-card" onclick="pickCar('Kia Carens Clavis', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/carens_clavis.png" alt="Kia Carens Clavis" class="car-box-img">
+          <div class="car-box-name">KIA CARENS CLAVIS</div>
+        </div>
+
+        <!-- 7. Carens -->
+        <div class="car-box-card" onclick="pickCar('Kia Carens', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/carens.png" alt="Kia Carens" class="car-box-img">
+          <div class="car-box-name">KIA CARENS</div>
+        </div>
+
+        <!-- 8. Carens Clavis EV -->
+        <div class="car-box-card" onclick="pickCar('Kia Carens Clavis EV', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/carens_clavis_ev.png" alt="Kia Carens Clavis EV" class="car-box-img">
+          <div class="car-box-name">KIA CARENS CLAVIS EV</div>
+        </div>
+
+        <!-- 9. EV6 -->
+        <div class="car-box-card" onclick="pickCar('Kia EV6', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/ev6.png" alt="Kia EV6" class="car-box-img">
+          <div class="car-box-name">KIA EV6</div>
+        </div>
+
+        <!-- 10. Carnival Limousine+ -->
+        <div class="car-box-card" onclick="pickCar('Kia Carnival Limousine+', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/carnival.png" alt="Kia Carnival Limousine+" class="car-box-img">
+          <div class="car-box-name">KIA CARNIVAL LIMOUSINE+</div>
+        </div>
+
+        <!-- 11. EV9 -->
+        <div class="car-box-card" onclick="pickCar('Kia EV9', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <img src="../assets/ev9.png" alt="Kia EV9" class="car-box-img">
+          <div class="car-box-name">KIA EV9</div>
+        </div>
+
+        <!-- 12. N/A -->
+        <div class="car-box-card na-box" onclick="pickCar('Kia Lineup', this)">
+          <div class="car-select-badge"><i class="fa-solid fa-check"></i></div>
+          <div class="car-box-name">N/A</div>
+        </div>
+      </div>
+
+      <button class="big-orange-btn" onclick="proceedToReviewStep()">
+        <span>Continue for Next Step</span>
+        <div class="circle-icon">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </button>
+    </section>
+
+    <!-- ================= SCREEN 3: GENERATED REVIEW & POST ================= -->
+    <section id="screen3" class="screen-view">
+      <div class="step-track-wrapper">
+        <div class="step-track-icon" onclick="goToScreen(2)">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="step-track-line"></div>
+      </div>
+      <div class="step-label">Review Customization</div>
+
+      <h2 class="car-screen-question">Your Experience Review</h2>
+      <p class="car-screen-subtitle">
+        Highlighted touchpoints for <strong id="summary-car-name" style="color: #ff5700;">New Seltos</strong> at Epitome Kia Whitefield:
+      </p>
+
+      <!-- Feedback Touchpoints (As provided in your requirements) -->
+      <div class="touchpoints-container">
+        <div class="factors-title">
+          <i class="fa-solid fa-thumbs-up" style="color: #ff5700;"></i> Highlights you enjoyed:
+        </div>
+        <div class="factor-pill-wrap" id="factors-pill-container">
+          <!-- Dynamically filled with customer type touchpoints -->
+        </div>
+      </div>
+
+      <!-- Optional Sales Consultant Name -->
+      <div class="consultant-input-wrap">
+        <label>Sales Consultant / Executive Name (Optional):</label>
+        <input type="text" id="consultant-input" placeholder="e.g. Anand, Rahul, Kavita...">
+      </div>
+
+      <!-- Generated Review Output -->
+      <div class="review-result-card">
+        <div class="review-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="review-quote" id="review-text-display">
+          Composing your natural review...
+        </div>
+
+        <div class="review-action-row">
+          <button class="btn-action-redirect" onclick="copyAndRedirectToGoogle()">
+            <i class="fa-brands fa-google"></i>
+            <span>Copy & Post to Google Review</span>
+          </button>
+          
+          <div class="secondary-actions">
+            <button class="btn-action-alt" onclick="regenerateReview()">
+              <i class="fa-solid fa-rotate"></i> Regenerate
+            </button>
+            <button class="btn-action-alt" id="copy-only-btn" onclick="copyReviewOnly()">
+              <i class="fa-regular fa-copy"></i> Copy Text
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-box" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-msg">Review copied to clipboard!</span>
+  </div>
+
+  <script>
+    const OUTLET = {
+      id: 'whitefield',
+      name: 'Whitefield',
+      url: 'https://g.page/r/CbqyLezxFvTnEAE/review'
+    };
+
+    // Customer Types & Touchpoints strictly as requested
+    const customerConfig = {
+      walkthrough: {
+        title: "Walk Through Customer",
+        question: "Which Kia Car are you currently looking into ?",
+        subtitle: "Which specific car are you currently considering.",
+        factors: [
+          "Showroom Ambience",
+          "Hospitality",
+          "Vehicle Display",
+          "Walk Through",
+          "Sales Consultant",
+          "Customer Service"
+        ]
+      },
+      testdrive: {
+        title: "Test Drive Customer",
+        question: "Which Kia Car you took the Test Drive for ?",
+        subtitle: "Which specific car you did took the test drive ?",
+        factors: [
+          "Showroom Ambience",
+          "Hospitality",
+          "Vehicle Display",
+          "Walk Through",
+          "Sales Consultant",
+          "Customer Service",
+          "Test Drive Process",
+          "Vehicle Condition"
+        ]
+      },
+      delivery: {
+        title: "Purchased Customer Review",
+        question: "Which Kia Car you had taken the delivery ?",
+        subtitle: "Which specific car you did took the delivery ?",
+        factors: [
+          "Showroom Ambience",
+          "Showroom Staff",
+          "Hospitality",
+          "Sales Consultant",
+          "Loan Process",
+          "Insurance Process",
+          "Delivery Process",
+          "Vehicle Condition",
+          "Vehicle Allocation",
+          "Accessories"
+        ]
+      }
+    };
+
+    let selectedCustomerType = 'walkthrough';
+    let selectedCar = 'New Seltos';
+    let activeFactors = new Set();
+    let lastVariationIdx = -1;
+
+    // Pick customer type on home page
+    function pickCustomerType(type, element) {
+      selectedCustomerType = type;
+      document.querySelectorAll('.customer-type-btn').forEach(btn => btn.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    // Navigation
+    function goToScreen(screenNumber) {
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+      const activeScreen = document.getElementById('screen' + screenNumber);
+      if (activeScreen) {
+        activeScreen.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function proceedToCarSelection() {
+      const config = customerConfig[selectedCustomerType];
+      document.getElementById('dynamic-car-question').innerText = config.question;
+      document.getElementById('dynamic-car-subtitle').innerText = config.subtitle;
+      goToScreen(2);
+    }
+
+    function pickCar(carName, element) {
+      selectedCar = carName;
+      document.querySelectorAll('.car-box-card').forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function proceedToReviewStep() {
+      document.getElementById('summary-car-name').innerText = selectedCar;
+      const config = customerConfig[selectedCustomerType];
+
+      // Populate touchpoints
+      activeFactors.clear();
+      const container = document.getElementById('factors-pill-container');
+      container.innerHTML = '';
+
+      config.factors.forEach(f => {
+        activeFactors.add(f);
+        const pill = document.createElement('div');
+        pill.className = 'factor-pill active';
+        pill.innerText = f;
+        pill.onclick = () => {
+          if (activeFactors.has(f)) {
+            activeFactors.delete(f);
+            pill.classList.remove('active');
+          } else {
+            activeFactors.add(f);
+            pill.classList.add('active');
+          }
+          regenerateReview();
+        };
+        container.appendChild(pill);
+      });
+
+      regenerateReview();
+      goToScreen(3);
+    }
+
+    // Varied review generation engine (3-4 lines each, non-repeating)
+    const reviewRepository = {
+      walkthrough: [
+        (car, outlet, staff) => 
+          `Visited Epitome Kia ${outlet} today to check out the ${car}, and the experience was truly memorable. The showroom ambience is pristine and modern, showcasing the vehicle display in great detail. ${staff ? `${staff} gave us an exceptional walk through and` : 'The sales consultant'} explained every feature with genuine hospitality. Excellent customer service overall—highly recommended for anyone planning to buy a Kia!`,
+
+        (car, outlet, staff) => 
+          `Had a wonderful visit at Epitome Kia ${outlet} while exploring the ${car}. The hospitality from the moment we walked in was warm, and the display area was immaculately organized. ${staff ? `Special appreciation to ${staff} for the` : 'The staff provided a'} patient walkthrough without any sales pressure. Top-notch customer service that makes car shopping a pleasure.`,
+
+        (car, outlet, staff) => 
+          `Impressive showroom ambience and courteous team at Epitome Kia ${outlet}! We came specifically to explore the ${car}, and the walkthrough covered all safety and tech features thoroughly. ${staff ? `${staff} answered all our questions very patiently.` : 'The sales consultant was remarkably knowledgeable.'} Looking forward to finalizing our booking here soon!`,
+
+        (car, outlet, staff) => 
+          `Superb customer service and great hospitality at Epitome Kia ${outlet}. The ${car} on display looked stunning, and the staff took time to walk us through each variant in detail. ${staff ? `Thanks to ${staff} for making` : 'The team made'} our visit very comfortable and informative. Definitely a 5-star showroom experience.`
+      ],
+
+      testdrive: [
+        (car, outlet, staff) => 
+          `Took a test drive of the ${car} at Epitome Kia ${outlet} today, and the entire experience was outstanding! The vehicle was in immaculate condition, fully sanitized, and handled like a dream. ${staff ? `${staff} explained the drive modes` : 'The sales consultant explained the vehicle dynamics'} and safety tech thoroughly during the route. Very organized test drive process and hospitable showroom ambience!`,
+
+        (car, outlet, staff) => 
+          `Had a fantastic test drive session for the ${car} at Epitome Kia ${outlet}. Vehicle allocation was immediate, and the car condition was pristine inside and out. ${staff ? `A big shout-out to ${staff} for guiding us` : 'The consultant guided us'} through the highway and city features with total patience. Seamless customer service from start to finish!`,
+
+        (car, outlet, staff) => 
+          `The test drive experience for the ${car} at Epitome Kia ${outlet} exceeded all my expectations. Right from showroom hospitality to the route selected for driving, everything was executed professionally. ${staff ? `${staff} was courteous and answered every technical query` : 'The sales team gave complete clarity on performance and safety'}. One of the best dealership test drives I have experienced!`,
+
+        (car, outlet, staff) => 
+          `Smooth and hassle-free test drive of the ${car} at Epitome Kia ${outlet}. The showroom atmosphere was energetic, staff hospitality was top class, and the test vehicle performed flawlessly. ${staff ? `Special thanks to ${staff} for the support.` : 'Great guidance by the sales consultant.'} Highly recommend taking a test drive here before deciding.`
+      ],
+
+      delivery: [
+        (car, outlet, staff) => 
+          `Took delivery of our dream ${car} today from Epitome Kia ${outlet}, and the celebration was unforgettable! Right from swift vehicle allocation to a completely smooth loan and insurance process, everything was handled seamlessly. ${staff ? `A heartfelt thank you to ${staff} and the staff` : 'Special mention to our sales consultant'} for flawless coordination and timely accessories fitment. The car was spotless at handover!`,
+
+        (car, outlet, staff) => 
+          `Delighted to receive the keys to our brand new ${car} at Epitome Kia ${outlet}! The delivery ceremony was grand with warm hospitality and great attention to detail. The finance team completed our loan and insurance documentation effortlessly without delays. Accessories were installed with precision, and vehicle condition was 10/10. Proud to join the Epitome Kia family!`,
+
+        (car, outlet, staff) => 
+          `Had a memorable delivery experience for our ${car} at Epitome Kia ${outlet}. Vehicle allocation was timely, and ${staff ? `${staff} kept us updated throughout` : 'the sales team maintained clear communication at every milestone'}. The ribbon cutting, key handover, and paperwork were executed smoothly. Hearty thanks to the entire team for making our milestone so special!`,
+
+        (car, outlet, staff) => 
+          `Exceptional customer care at Epitome Kia ${outlet} during the delivery of our ${car}! All commitments regarding insurance, loan processing, and accessory fitment were honored ahead of schedule. The vehicle condition at delivery was impeccable, and the showroom staff made us feel truly celebrated. Kudos to the entire Epitome Kia team!`
+      ]
+    };
+
+    function regenerateReview() {
+      const staff = document.getElementById('consultant-input').value.trim();
+      const templates = reviewRepository[selectedCustomerType];
+
+      let randIdx;
+      do {
+        randIdx = Math.floor(Math.random() * templates.length);
+      } while (templates.length > 1 && randIdx === lastVariationIdx);
+      lastVariationIdx = randIdx;
+
+      const review = templates[randIdx](selectedCar, OUTLET.name, staff);
+      document.getElementById('review-text-display').innerText = review;
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      } else {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        return new Promise((resolve, reject) => {
+          document.execCommand('copy') ? resolve() : reject();
+          textArea.remove();
+        });
+      }
+    }
+
+    function copyReviewOnly() {
+      const text = document.getElementById('review-text-display').innerText;
+      if (!text) return;
+
+      copyToClipboard(text).then(() => {
+        showToast('Review copied to clipboard!');
+        const btn = document.getElementById('copy-only-btn');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy Text';
+        }, 2200);
+      });
+    }
+
+    function copyAndRedirectToGoogle() {
+      const text = document.getElementById('review-text-display').innerText;
+      if (!text) return;
+
+      copyToClipboard(text).then(() => {
+        showToast('Copied! Opening Google Reviews...');
+        setTimeout(() => {
+          window.open(OUTLET.url, '_blank');
+        }, 800);
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
